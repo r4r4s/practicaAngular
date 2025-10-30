@@ -1,0 +1,16 @@
+.custom-navbar-orange {
+  background-color: #FF8C42; 
+
+}
+
+.custom-navbar-orange .navbar-brand,
+.custom-navbar-orange .nav-link {
+  color: #333; 
+}
+.custom-navbar-orange .nav-link:hover {
+  color: #000; 
+}
+
+.custom-navbar-orange .navbar-toggler-icon {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg) brightness(0.8);
+}
