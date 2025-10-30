@@ -1,39 +1,29 @@
-import { Injectable } from "@angular/core";
-import { ARTICULOS, Articulo } from "../../Modelos/articulo";
+// src/app/Components/articulos/articulos.component.ts
 
-@Injectable({
-    providedIn: 'root'
+import { Component, OnInit } from '@angular/core';
+import { Articulo } from '../../Modelos/articulo';
+// 1. CORRECCIÓN: Importa 'ArticulosService', no 'Articulos'
+import { Articulos } from '../../Servicios/articulosService'; 
+import { RouterLink } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
+
+@Component({
+  selector: 'app-articulos',
+  standalone: true,
+  imports: [RouterLink, CurrencyPipe], 
+  templateUrl: './articulos.html',
+  styleUrl: './articulos.css'
 })
-export class ArticulosService {
-    constructor() {}
+export class ArticulosComponent implements OnInit {
+  
+  // Esta es tu variable para el array
+  public articulos: Articulo[] = [];
 
-    articulos:Articulo[]= ARTICULOS
+  // 2. CORRECCIÓN: Nombra el servicio 'articulosService' y usa el tipo 'ArticulosService'
+  constructor(private articulosService: Articulos) { }
 
-    getArticulos():Articulo[]{
-        return this.articulos
-    }
-
-    getArticulo(id:string){
-        let pos=this.articulos.findIndex(art=> art.id===id)
-        return this.articulos[pos]
-    }
-
-    postArticulo(articulo:Articulo){
-        let pos=this.articulos.findIndex(art=> art.id===articulo.id)
-        if(pos===-1){
-            this.articulos.push(articulo)
-        }
-        else
-            alert("El articulo ya existe")
-    }
-
-    putArticulo(articulo:Articulo){
-        let pos=this.articulos.findIndex(art=> art.id===articulo.id)
-        this.articulos[pos]=articulo
-    }
-
-    deleteArticulo(id:string){
-        let pos=this.articulos.findIndex(art=> art.id===id)
-        this.articulos.splice(pos,1)
-    }
+  ngOnInit(): void {
+    // 3. CORRECIÓN: Llama a 'this.articulosService' para obtener los datos
+    this.articulos = this.articulosService.getArticulos();
+  }
 }

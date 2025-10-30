@@ -1,1 +1,36 @@
-<p>articulos works!</p>
+<h2>Gestión de Artículos</h2>
+
+<a class="btn btn-primary mb-3" routerLink="/nuevo">Nuevo Artículo</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Unidades</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (art of articulos; track art.id) {
+      <tr>
+        <td>{{ art.id }}</td>
+        <td>{{ art.nombre }}</td>
+        
+        <td>{{ art.precio | currency:'EUR' }}</td>
+
+        <td>{{ art.unidades }}</td>
+        <td>
+          <a class="btn btn-info btn-sm" [routerLink]="['/ver', art.id]">Ver</a>
+          <a class="btn btn-warning btn-sm mx-1" [routerLink]="['/modificar', art.id]">Modificar</a>
+          <a class="btn btn-danger btn-sm" [routerLink]="['/borrar', art.id]">Borrar</a>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="5" class="text-center">No hay artículos para mostrar.</td>
+      </tr>
+    }
+  </tbody>
+</table>
