@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; 
-import { Articulos } from '../../Servicios/articulosService';
+import { Articulos } from '../../Servicios/articulos/articulosService';
 import { Articulo } from '../../Modelos/articulo';
 import { CurrencyPipe } from '@angular/common'; 
 

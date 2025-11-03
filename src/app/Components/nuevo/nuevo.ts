@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Articulos } from '../../Servicios/articulosService'; 
+import { Articulos } from '../../Servicios/articulos/articulosService'; 
 import { Articulo } from '../../Modelos/articulo';
 import { FormsModule } from '@angular/forms';
 

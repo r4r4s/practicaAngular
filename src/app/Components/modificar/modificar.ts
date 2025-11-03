@@ -1,15 +1,13 @@
-// src/app/Components/modificar/modificar.component.ts
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Articulos } from '../../Servicios/articulosService';
+import { Articulos } from '../../Servicios/articulos/articulosService';
 import { Articulo } from '../../Modelos/articulo';
-import { FormsModule } from '@angular/forms'; // (Teoría: Tema 3)
-
+import { FormsModule } from '@angular/forms'; // 
 @Component({
   selector: 'app-modificar',
   standalone: true,
-  imports: [FormsModule], // 1. Importar FormsModule
+  imports: [FormsModule], 
   templateUrl: './modificar.html',
   styleUrl: './modificar.css'
 })
@@ -18,7 +16,6 @@ export class Modificar implements OnInit {
   public articulo: Articulo = {
     id: '',
     nombre: '',
-
     precio: 0,
     unidades: 0 
   };
