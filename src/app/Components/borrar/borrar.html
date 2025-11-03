@@ -8,21 +8,19 @@
     @if (articulo) {
       <p>
         ¿Está seguro de que desea eliminar el artículo 
-        <strong>"{{ articulo.nombre }}"</strong> (ID: {{ articulo.id }})?
+        <strong>"{{ articulo.nombre }}"</strong>?
       </p>
     } @else {
       <p>¿Está seguro de que desea eliminar este artículo?</p>
     }
-    
-    <p class="mb-0">Esta acción no se puede deshacer.</p>
-    
+  
     <hr>
 
     <button (click)="borrar()" class="btn btn-danger">
-      Si, Borrar
+      Borrar
     </button>
     <button (click)="cancelar()" class="btn btn-secondary ms-2">
-      No, Cancelar
+      Cancelar
     </button>
 
   </div>

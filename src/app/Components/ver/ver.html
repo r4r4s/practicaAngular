@@ -8,18 +8,19 @@
            (error)="$event.target.src='assets/default.jpg'">
            
       <div class="card-body">
-        <h5 class="card-title">{{ articulo.nombre }} ({{ articulo.id }})</h5>
+        <h5 class="card-title">{{ articulo.nombre }} </h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <b>Precio:</b> {{ articulo.precio | currency:'EUR' }}
         </li>
+        
         <li class="list-group-item">
           <b>Unidades en stock:</b> {{ articulo.unidades }}
         </li>
       </ul>
       <div class="card-body text-center">
-        <button (click)="volver()" class="btn btn-primary">Volver al listado</button>
+        <button (click)="volver()" class="btn btn-primary">Volver</button>
       </div>
     </div>
   } @else {
