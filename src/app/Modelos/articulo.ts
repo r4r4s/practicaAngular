@@ -27,5 +27,21 @@ export const ARTICULOS: Array<Articulo> = [
         descripcion: 'Descripcion del Articulo 3',
         precio: 300,
         unidades: 30
+    },
+
+    {
+        id: 'm4',
+        nombre: 'Articulo 3',
+        descripcion: 'Descripcion del Articulo 3',
+        precio: 300,
+        unidades: 30
+    },
+
+    {
+        id: 'm5',
+        nombre: 'Articulo 3',
+        descripcion: 'Descripcion del Articulo 3',
+        precio: 300,
+        unidades: 30
     }
 ];

@@ -1,1 +1,29 @@
-<p>ver works!</p>
+<div class="d-flex justify-content-center mt-4">
+  @if (articulo) {
+    <div class="card" style="width: 20rem;">
+      
+      <img src="assets/{{articulo.id}}.jpg" 
+           class="card-img-top" 
+           alt="{{articulo.nombre}}"
+           (error)="$event.target.src='assets/default.jpg'">
+           
+      <div class="card-body">
+        <h5 class="card-title">{{ articulo.nombre }} ({{ articulo.id }})</h5>
+        <p class="card-text">{{ articulo.descripcion }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <b>Precio:</b> {{ articulo.precio | currency:'EUR' }}
+        </li>
+        <li class="list-group-item">
+          <b>Unidades en stock:</b> {{ articulo.unidades }}
+        </li>
+      </ul>
+      <div class="card-body text-center">
+        <button (click)="volver()" class="btn btn-primary">Volver al listado</button>
+      </div>
+    </div>
+  } @else {
+    <p>Cargando artículo...</p>
+  }
+</div>

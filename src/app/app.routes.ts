@@ -15,7 +15,6 @@ export const routes: Routes = [
 
   { path: 'articulos', component: ArticulosComponent},
 
-
   { path: 'nuevo', component: Nuevo },
 
   { path: 'ver/:id', component: Ver},

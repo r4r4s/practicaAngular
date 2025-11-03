@@ -17,6 +17,7 @@ export class Articulos {
         let pos=this.articulos.findIndex(art=> art.id===id)
         return this.articulos[pos]
     }
+    
 
     postArticulo(articulo:Articulo){
         let pos=this.articulos.findIndex(art=> art.id===articulo.id)
