@@ -1,1 +1,49 @@
-<p>nuevo works!</p>
+<div class="d-flex justify-content-center mt-4">
+
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      
+      <h3 class="card-title text-center">Nuevo Artículo</h3>
+      <hr>
+
+      <form #articuloForm="ngForm">
+  
+        <div class="mb-3">
+          <label for="id" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="id" 
+                 [(ngModel)]="nuevoArticulo.id" name="id" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" 
+                 [(ngModel)]="nuevoArticulo.nombre" name="nombre" required>
+        </div>
+        
+    
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio:</label>
+          <input type="number" class="form-control" id="precio" 
+                 [(ngModel)]="nuevoArticulo.precio" name="precio" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="unidades" class="form-label">Unidades:</label>
+          <input type="number" class="form-control" id="unidades" 
+                 [(ngModel)]="nuevoArticulo.unidades" name="unidades" required>
+        </div>
+        
+        <div class="text-center">
+          <button (click)="grabar()" [disabled]="articuloForm.invalid" class="btn btn-success">
+            Grabar
+          </button>
+          
+          <button (click)="cancelar()" class="btn btn-secondary ms-2">
+            Cancelar
+          </button>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
