@@ -1,1 +1,29 @@
-<p>borrar works!</p>
+<div class="d-flex justify-content-center mt-4">
+  
+  <div class="alert alert-danger text-center" role="alert" style="width: 25rem;">
+    
+    <h4 class="alert-heading">Confirmar Borrado</h4>
+    <hr>
+    
+    @if (articulo) {
+      <p>
+        ¿Está seguro de que desea eliminar el artículo 
+        <strong>"{{ articulo.nombre }}"</strong> (ID: {{ articulo.id }})?
+      </p>
+    } @else {
+      <p>¿Está seguro de que desea eliminar este artículo?</p>
+    }
+    
+    <p class="mb-0">Esta acción no se puede deshacer.</p>
+    
+    <hr>
+
+    <button (click)="borrar()" class="btn btn-danger">
+      Si, Borrar
+    </button>
+    <button (click)="cancelar()" class="btn btn-secondary ms-2">
+      No, Cancelar
+    </button>
+
+  </div>
+</div>
