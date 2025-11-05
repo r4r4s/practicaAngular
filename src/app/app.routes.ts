@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { Login } from './Components/login/login';
 import { Inicio} from './Components/inicio/inicio';
 import {ArticulosComponent} from './Components/articulos/articulos';
+import { Productos } from './Components/productos/productos';
 import { Nuevo } from './Components/nuevo/nuevo';
 import { Ver } from './Components/ver/ver';
 import { Modificar} from './Components/modificar/modificar';
@@ -20,6 +21,8 @@ export const routes: Routes = [
   { path: 'inicio', component: Inicio, canActivate: [authGuard]},
 
   { path: 'articulos', component: ArticulosComponent, canActivate: [authGuard]},
+
+  { path: 'productos', component: Productos, canActivate: [authGuard] },
 
   { path: 'nuevo', component: Nuevo, canActivate: [authGuard] },
 

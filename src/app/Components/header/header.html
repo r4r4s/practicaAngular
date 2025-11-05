@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-orange">
   <div class="container-fluid">
 
-    <a class="navbar-brand ms-3" routerLink="/">
-      <b>Gestión de Artículos</b>
+    <a class="navbar-brand ms-3" routerLink="/inicio">
+      <b>Gestión de Productos</b>
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -12,19 +12,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       
       @if (estaLogueado) {
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav ms-auto me-3 align-items-center gap-2">
+          
           <li class="nav-item">
-            <a class="nav-link" routerLink="/inicio"><b>Inicio</b></a>
+            <a class="nav-link glass-link rounded-3 px-3 py-2" routerLink="/inicio"><b>Inicio</b></a>
           </li>
+          
           <li class="nav-item">
-            <a class="nav-link ms-3" routerLink="/articulos"><b>Articulos</b></a>
+            <a class="nav-link glass-link rounded-3 px-3 py-2" routerLink="/productos"><b>Productos</b></a>
           </li>
-        </ul>
-      }
 
-      <ul class="navbar-nav ms-auto me-3">
-        
-        @if (estaLogueado) {
+          <li class="nav-item">
+            <a class="nav-link glass-link rounded-3 px-3 py-2" routerLink="/articulos"><b>Modificar Productos</b></a>
+          </li>
+
+          <li class="nav-item">
+            <span class="navbar-text mx-2 ms-2">|</span>
+          </li>
+
           <li class="nav-item">
             <span class="navbar-text me-2">
               Hola, Rares
@@ -33,9 +38,10 @@
           <li class="nav-item">
             <button (click)="logout()" class="btn btn-outline-light btn-sm">Logout</button>
           </li>
-        }
-        
-      </ul>
+        </ul>
+      }
+      
     </div>
   </div>
 </nav>
+        

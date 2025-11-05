@@ -1,0 +1,40 @@
+<h1 class="text-center my-4">Nuestros Artículos</h1>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+  @for (art of articulos; track art.id) {
+    <div class="col">
+      <div class="card h-100">
+        
+        <img src="assets/{{art.id}}.jpg" 
+             class="card-img-top" 
+             alt="{{art.nombre}}"
+             (error)="$event.target.src='assets/default.jpg'">
+             
+        <div class="card-body">
+          <h5 class="card-title">{{ art.nombre }}</h5>
+
+        </div>
+        
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <b>Precio:</b> {{ art.precio | currency:'EUR' }}
+          </li>
+          <li class="list-group-item">
+            <b>Stock:</b> {{ art.unidades }}
+          </li>
+        </ul>
+        
+        <div class="card-footer text-center">
+          <a class="btn btn-info btn-sm" [routerLink]="['/ver', art.id]">Ver Detalles</a>
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <div class="col-12">
+      <div class="alert alert-info mb-0" role="alert">
+        No hay productos para mostrar.
+      </div>
+    </div>
+  }
+</div>
