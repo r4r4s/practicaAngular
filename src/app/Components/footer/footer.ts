@@ -1,4 +1,3 @@
-// src/app/Components/footer/footer.component.ts
 
 import { Component } from '@angular/core';
 

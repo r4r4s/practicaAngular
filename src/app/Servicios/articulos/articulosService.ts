@@ -1,40 +1,33 @@
-import { Injectable } from "@angular/core";
-import { Articulo, ARTICULOS} from "../../Modelos/articulo";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; 
+import { Observable } from 'rxjs'; 
+import { Articulo } from '../../Modelos/articulo';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class Articulos {
-    constructor() {}
+  private url = 'http://localhost:3000/articulos';
 
-    articulos:Articulo[]= ARTICULOS
+  constructor(private http: HttpClient) { }
 
-    getArticulos():Articulo[]{
-        return this.articulos
-    }
+  getArticulos(): Observable<Articulo[]> {
+    return this.http.get<Articulo[]>(this.url); 
+  }
 
-    getArticulo(id:string){
-        let pos=this.articulos.findIndex(art=> art.id===id)
-        return this.articulos[pos]
-    }
-    
+  getArticulo(id: string): Observable<Articulo> {
+    return this.http.get<Articulo>(`${this.url}/${id}`); 
+  }
 
-    postArticulo(articulo:Articulo){
-        let pos=this.articulos.findIndex(art=> art.id===articulo.id)
-        if(pos===-1){
-            this.articulos.push(articulo)
-        }
-        else
-            alert("El articulo ya existe")
-    }
+  postArticulo(articulo: Articulo): Observable<Articulo> {
+    return this.http.post<Articulo>(this.url, articulo); 
+  }
 
-    putArticulo(articulo:Articulo){
-        let pos=this.articulos.findIndex(art=> art.id===articulo.id)
-        this.articulos[pos]=articulo
-    }
+  putArticulo(originalId: string, articulo: Articulo): Observable<Articulo> {
+    return this.http.put<Articulo>(`${this.url}/${originalId}`, articulo); 
+  }
 
-    deleteArticulo(id:string){
-        let pos=this.articulos.findIndex(art=> art.id===id)
-        this.articulos.splice(pos,1)
-    }
+  deleteArticulo(id: string): Observable<{}> {
+    return this.http.delete<{}>(`${this.url}/${id}`); 
+  }
 }

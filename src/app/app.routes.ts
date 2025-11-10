@@ -4,10 +4,10 @@ import { Routes } from '@angular/router';
 import { Login } from './Components/login/login';
 import { Inicio} from './Components/inicio/inicio';
 import {ArticulosComponent} from './Components/articulos/articulos';
-import { Productos } from './Components/productos/productos';
-import { Nuevo } from './Components/nuevo/nuevo';
-import { Ver } from './Components/ver/ver';
-import { Modificar} from './Components/modificar/modificar';
+import { ProductosComponent } from './Components/productos/productos';
+import { NuevoComponent } from './Components/nuevo/nuevo';
+import { VerComponent } from './Components/ver/ver';
+import { ModificarComponent} from './Components/modificar/modificar';
 import { Borrar } from './Components/borrar/borrar';
 import { Error } from './Components/error/error';
 
@@ -22,10 +22,10 @@ export const routes: Routes = [
   { path: '', component: Login },
   { path: 'inicio', component: Inicio, canActivate: [authGuard]},
   { path: 'articulos', component: ArticulosComponent, canActivate: [authGuard]},
-  { path: 'productos', component: Productos, canActivate: [authGuard] },
-  { path: 'nuevo', component: Nuevo, canActivate: [authGuard] },
-  { path: 'ver/:id', component: Ver, canActivate: [authGuard]},
-  { path: 'modificar/:id', component: Modificar, canActivate: [authGuard] },
+  { path: 'productos', component: ProductosComponent, canActivate: [authGuard] },
+  { path: 'nuevo', component: NuevoComponent, canActivate: [authGuard] },
+  { path: 'ver/:id', component: VerComponent, canActivate: [authGuard]},
+  { path: 'modificar/:id', component: ModificarComponent, canActivate: [authGuard] },
   { path: 'borrar/:id', component: Borrar, canActivate: [authGuard] },
   { path: 'miaplicacion', component: Miaplicacion, canActivate: [authGuard],
     children: [

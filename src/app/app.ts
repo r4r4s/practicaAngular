@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './Components/header/header';
 import { Footer } from './Components/footer/footer';
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { Footer } from './Components/footer/footer';
 })
 export class App {
   protected readonly title = signal('PracticaAngular');
+ 
 }
