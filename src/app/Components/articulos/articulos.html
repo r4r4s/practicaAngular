@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (art of articulos; track art.id) {
+      @for (art of articulos$ | async; track art.id) {
         <tr>
           <th scope="row" class="text-center">{{ art.id }}</th>
           

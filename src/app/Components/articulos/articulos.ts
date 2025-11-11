@@ -1,8 +1,10 @@
+import { Articulos } from './../../Servicios/articulos/articulosService';
 import { Component, OnInit, inject } from '@angular/core';
 import { Articulo } from '../../Modelos/articulo';
-import { Articulos } from '../../Servicios/articulos/articulosService'; 
 import { RouterLink } from '@angular/router';
 import { CurrencyPipe, CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-articulos',
@@ -13,21 +15,14 @@ import { CurrencyPipe, CommonModule } from '@angular/common';
   styleUrl: './articulos.css'
 })
 export class ArticulosComponent implements OnInit {
+
+  articulos$!: Observable<Articulo[]>;
   public articulos: Articulo[] = [];
   private articulosService = inject(Articulos);
 
   ngOnInit(): void {
-    this.cargarArticulos();
+    this.articulos$ = this.articulosService.getArticulos();
   }
 
-  cargarArticulos(): void {
-    this.articulosService.getArticulos().subscribe({
-      next: (data: Articulo[]) => {
-        this.articulos = data;
-      },
-      error: (err: any) => {
-        console.error('Error al cargar artículos:', err);
-      }
-    });
-  }
+ 
 }

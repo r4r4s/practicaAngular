@@ -4,6 +4,7 @@ import { Articulo } from '../../Modelos/articulo';
 import { Articulos } from '../../Servicios/articulos/articulosService';
 import { RouterLink } from '@angular/router';
 import { CommonModule, CurrencyPipe } from '@angular/common'; 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-productos',
@@ -14,12 +15,11 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
   styleUrls: ['./productos.css']
 })
 export class ProductosComponent implements OnInit {
+  productos$!: Observable<Articulo[]>;
   articulos: Articulo[] = [];
   private articulosService = inject(Articulos);
 
   ngOnInit(): void {
-    this.articulosService.getArticulos().subscribe((data: Articulo[]) => {
-      this.articulos = data;
-    });
+   this.productos$ = this.articulosService.getArticulos();
   }
 }

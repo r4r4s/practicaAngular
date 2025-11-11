@@ -2,7 +2,7 @@
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
 
-  @for (art of articulos; track art.id) {
+  @for (art of productos$ | async; track art.id) {
     <div class="col">
       <div class="card h-100">
         
